@@ -1,0 +1,26 @@
+<div ng-controller="HomeCtrl as home">
+    <h1>This is the partial for Home Controller.</h1>
+    
+    <table>
+        <tr>
+            <th>accDescription</th>
+            <th>accDisplayNum</th>
+            <th>accId</th>
+            <th>accType</th>
+            <th>balHoldAmount</th>
+            <th>favorite</th>
+        </tr>
+        <tr ng-repeat="homeAcc in home.homeData | limitTo : '10'">
+            <th>{{homeAcc.accDescription}}
+                <span>
+                    <input value="fav"  id="fav" type="button" ng-click="home.favorite(homeAcc);"></input>
+                </span>
+            </th>
+            <th>{{homeAcc.accDisplayNum}}</th>
+            <th>{{homeAcc.accId}}</th>
+            <th>{{homeAcc.accType}}</th>
+            <th>{{homeAcc.balHoldAmount}}</th>
+            <th>{{homeAcc.favorite}}</th>
+        </tr>
+    </table>
+</div>
