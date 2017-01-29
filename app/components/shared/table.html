@@ -1,0 +1,8 @@
+<tr ng-repeat="favData in $ctrl.accountList | limitTo : '10'">
+    <th>{{favData.accDescription}}<span><input value="{{$ctrl.value}}"  id="{{$ctrl.accId}}" type={{$ctrl.type}} ng-click="$ctrl.onRemove({favData: favData})"></input></span></th>
+    <th>{{favData.accDisplayNum}}</th>
+    <th>{{favData.accId}}</th>
+    <th>{{favData.accType}}</th>
+    <th>{{favData.balHoldAmount}}</th>
+    <th>{{favData.favorite}}</th>
+</tr>

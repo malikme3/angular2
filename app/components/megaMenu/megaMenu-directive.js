@@ -1,7 +1,33 @@
 'use strict';
 
 angular.module('myApp.megaMenu.megaMenu-directive', [])
-.directive('megaMenu', ['dataStoreService','$rootScope', function(dataStoreService, $rootScope){
+    .directive('megaMenu', megaMenu)
+    .component('tableComponent', {
+
+        templateUrl: 'components/shared/table.html',
+        controller: tableComponentController,
+        bindings: {
+            //value="fav"  id="fav_btn" type="button" ng-click="fav.updateFav(favData)
+            accountList: '<',
+            value: '@',
+            accId: '@',
+            type: '@',
+            onRemove: '&'
+        }
+
+
+    });
+
+function tableComponentController (){
+  var $ctrl = this;
+
+  $ctrl.accSum = list.favData;
+}
+
+megaMenu.$inject = ['dataStoreService', '$rootScope'];
+
+function megaMenu(dataStoreService, $rootScope) {
+
     return {
         scope: {},
         bindToController: {
@@ -9,27 +35,17 @@ angular.module('myApp.megaMenu.megaMenu-directive', [])
         },
         controller: function() {
             var vm = this;
-            
+
             vm.megaMenuData = [];
-            
-            $rootScope.$watch(function () { return dataStoreService.getMegaMenu() }, function (obj) {
+
+            $rootScope.$watch(function() {
+                return dataStoreService.getMegaMenu()
+            }, function(obj) {
                 vm.megaMenuData = obj;
             });
         },
         controllerAs: 'ctrl',
         templateUrl: 'components/megaMenu/megaMenu_directive.html',
-//        link: function (scope, element, attrs, controller) {
-//            scope.megaMenuData = [];
-//            
-//            $rootScope.$watch(function () { return dataStoreService.getMegaMenu() }, function (obj) {
-//                for (var i =0; i < obj.length ; i++) {
-//                    if (obj.favorite == true) {
-//                        scope.megaMenuData = obj;
-//                    }
-//                }
-//             scope.megaMenuData = obj;
-//            });
-//            
-//        }
+
     }
-}]);
+};

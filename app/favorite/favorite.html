@@ -1,6 +1,6 @@
 <div ng-controller="FavoriteCtrl as fav">
     <h1>This is the partial for Favorite Controller.</h1>
-    
+
     <table>
         <tr>
             <th>accDescription</th>
@@ -12,6 +12,7 @@
         </tr>
         <tr ng-repeat="favData in fav.favData | limitTo : '10'">
             <th>{{favData.accDescription}}<span><input value="fav"  id="fav_btn" type="button" ng-click="fav.updateFav(favData)"></input></span></th>
+              <!-- <input value="fav"  id="fav_btn" type="button" ng-click="fav.updateFav(favData)"></input></span></th> -->
             <th>{{favData.accDisplayNum}}</th>
             <th>{{favData.accId}}</th>
             <th>{{favData.accType}}</th>

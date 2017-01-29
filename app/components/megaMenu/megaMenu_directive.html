@@ -1,11 +1,19 @@
-<h1>This is a MegaMenu Directive</h1>
+<h1>MegaMenu Directive</h1>
 <table>
-        <tr ng-repeat="demoData in ctrl.megaMenuData | limitTo : '10'">
-            <th>{{demoData.accDescription}}</th>
-            <th>{{demoData.accDisplayNum}}</th>
-            <th>{{demoData.accId}}</th>
-            <th>{{demoData.accType}}</th>
-            <th>{{demoData.balHoldAmount}}</th>
-            <th>{{demoData.favorite}}</th>
-        </tr>
-    </table>
+    <tr>
+        <th>accDescription</th>
+        <th>accDisplayNum</th>
+        <th>accId</th>
+        <th>accType</th>
+        <th>balHoldAmount</th>
+        <th>favorite</th>
+    </tr>
+    <tr ng-repeat="demoData in ctrl.megaMenuData | limitTo : '10'">
+        <th>{{demoData.accDescription}}</th>
+        <th>{{demoData.accDisplayNum}}</th>
+        <th>{{demoData.accId}}</th>
+        <th>{{demoData.accType}}</th>
+        <th>{{demoData.balHoldAmount}}</th>
+        <th>{{demoData.favorite}}</th>
+    </tr>
+</table>
